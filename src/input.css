@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .theImage{
+        @apply h-[100%]
+    }
+    .theImage img{
+        @apply object-cover h-[100%] w-[100%] 
+    }
+    .albumList::before{
+        content: attr(data-albumName);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        transform: translate(-50%, -50%);
+        font-size: 2rem;
+    }
+    .albumList .theImage:first-child img{
+        transition: 0.5s ease;
+    }
+    .albumList:hover .theImage:first-child img{
+        transform: scale(1.3);
+        transition: 0.5s ease;
+    }
+    .theAlbum{
+        @apply bg-yellow-50
+    }
+    .theAlbum .theAlbum_batch{
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        padding-top: 2rem;
+    }
+    .theAlbum .albumList_wrapper .theitem{
+        display: flex;
+        align-items: start;
+        gap: 1rem;
+        margin-top: 3rem;
+    }
+    .theAlbum .albumList_wrapper .theitem img{
+        width: 100%;
+    }
+    .theAlbum .albumList a img{
+        transition: 0.5s ease;
+    }
+    .theAlbum .albumList a:hover img{
+        transform: scale(1.3);
+        transition: 0.5s ease;
+    }
+    .theAlbum .tns-outer{
+       position: relative;
+    }
+    .theAlbum .tns-controls{
+        width: full;
+        display: flex;
+        justify: space-between;
+        display: absolute;
+        top: 50%;
+        z-index: 20;
+    }
+    .theAlbum .tns-controls button{
+        font-size: 1.5rem;
+    }
+    .theAlbum .tns-outer [data-action]{
+        display: none;
+    }
+
+
+}
